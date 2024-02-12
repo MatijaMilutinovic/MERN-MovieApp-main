@@ -24,8 +24,8 @@ const ShowMovie = () => {
             <p>DirectedBy: {movie.DirectedBy}</p>
             <p>WrittenBy: {movie.WrittenBy}</p>
             <p>ReleaseYear: {movie.ReleaseYear}</p>
-            <p>CreatedAt: {new Date(movie.createdAt).toString()}</p>
-            <p>UpdatedAt: {new Date(movie.updatedAt).toString()}</p>
+            <p>Genre: {movie.Genre}</p>
+            <p>Rating: {movie.Rating}</p>
         </div> 
     );
 }

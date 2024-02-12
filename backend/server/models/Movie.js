@@ -16,6 +16,16 @@ const MovieSchema = new mongoose.Schema({
     ReleaseYear: {
         type: Number,
         required: true
+    },
+    Genre: {
+        type: [String],
+        required: true,
+        default: []
+    },
+    Rating: {
+        type: Number,
+        required: true,
+        default: 0
     }
 }, {timestamps: true})
 

@@ -8,7 +8,8 @@ const CreateMovie = () => {
     const [DirectedBy, setDirectedBy] = useState('')
     const [WrittenBy, setWrittenBy] = useState('')
     const [ReleaseYear, setReleaseYear] = useState('')
-    const [loading, setLoading] = useState(false)
+    const [Genre, setGenre] = useState([""])
+    const [Rating, setRating] = useState(0)
 
     const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ const CreateMovie = () => {
         event.preventDefault();
 
         const data = {
-            Title, DirectedBy, WrittenBy, ReleaseYear
+            Title, DirectedBy, WrittenBy, ReleaseYear, Genre, Rating
         }
 
         axios.post("http://localhost:1001/create",data)
@@ -27,15 +28,7 @@ const CreateMovie = () => {
              .catch((error) => {
                 console.log(error.message)
              })
-        // fetch("http://localhost:1001/create", {
-        //     method: 'POST',
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(data)
-        // }).then(() => {
-        //     console.log('Added new movie')
-        //     //navigate('/');
-        //     setLoading(false);
-        // }).catch((error) => console.log(error.message))
+             
     }
     return ( 
         <div>
@@ -64,6 +57,18 @@ const CreateMovie = () => {
                     <input type="number" id="releaseYearInput"
                         required value={ReleaseYear}
                         onChange={(event) => setReleaseYear(event.target.value)}/>
+                </div>
+                <div>
+                    <label htmlFor="genreInput">Genre: </label>
+                    <input type="text" id="genreInput"
+                        required value={Genre}
+                        onChange={(event) => setGenre(event.target.value.split(','))}/>
+                </div>
+                <div>
+                    <label htmlFor="ratingInput">Rating: </label>
+                    <input type="number" id="ratingInput"
+                        required value={Rating}
+                        onChange={(event) => setRating(event.target.value)}/>
                 </div>
                 <button>Create</button>
             </form>

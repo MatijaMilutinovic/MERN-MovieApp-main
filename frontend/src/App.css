@@ -38,10 +38,28 @@
 }
 
 .Button-warning{
-  color: #ff0000;
+  color:  white;
   background-color: #990000;
   border-color: white;
 }
 .Button-warning:hover{
   background-color: #550000;
+}
+
+thead{
+  text-align: left;
+}
+
+tr, td, table{
+  border: 1px solid black;
+}
+
+.checkList{
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.checkItem{
+  padding-right: 10px;
 }
